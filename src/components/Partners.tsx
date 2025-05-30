@@ -1,12 +1,12 @@
 const partners = [
-    { name: 'UEH', src: '/assets/partners/ueh.png' },
-    { name: 'ISB', src: '/assets/partners/isb.png' },
-    { name: 'Monash', src: '/assets/partners/monash.png' },
-    { name: 'Macquarie', src: '/assets/partners/macquarie.webp' },
-    { name: 'UTS', src: '/assets/partners/uts.svg' },
-    { name: 'Wollongong', src: '/assets/partners/wollongong.png' },
-    { name: 'Western Sydney', src: '/assets/partners/wsu.png' },
-    { name: 'Deakin', src: '/assets/partners/deakin.png' },
+    { name: 'UEH', src: 'ueh.png' },
+    { name: 'ISB', src: 'isb.png' },
+    { name: 'Monash', src: 'monash.png' },
+    { name: 'Macquarie', src: 'macquarie.webp' },
+    { name: 'UTS', src: 'uts.svg' },
+    { name: 'Wollongong', src: 'wollongong.png' },
+    { name: 'Western Sydney', src: 'wsu.png' },
+    { name: 'Deakin', src: 'deakin.png' },
 ];
 
 export function Partners() {
@@ -15,7 +15,7 @@ export function Partners() {
             {partners.map(partner => (
                 <img
                     key={partner.name}
-                    src={partner.src}
+                    src={`/DigitalCompetence/assets/partners/${partner.src}`}
                     alt={partner.name}
                     className="h-4 stroke-white opacity-70 transition-opacity hover:opacity-100 lg:h-6"
                 />
