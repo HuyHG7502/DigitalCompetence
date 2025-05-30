@@ -5,16 +5,16 @@ import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <Router>
-      <div className="flex max-w-screen min-h-screen bg-slate-800 text-white">
-        <Sidebar />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+      <Router basename="/DigitalCompetence">
+          <div className="flex min-h-screen max-w-screen bg-slate-800 text-white">
+              <Sidebar />
+              <main className="flex-1">
+                  <Routes>
+                      <Route path="/" element={<HomePage />} />
+                  </Routes>
+              </main>
+          </div>
+      </Router>
   );
 }
 
