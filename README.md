@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# Digital Competence Skill Assessment and Certification Framework
+A interactive and modular PoC model visualising digital competence across multiple skill domains.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project implements a digital competence assessment and visualisation tool inspired by the "Digital Competence Wheel". With future integration with backend, it aims to evaluate the user's proficiency levels across core digital skill domains and sub-skills, all of which are visualised in a dynamic radial sunburst chart.
 
-Currently, two official plugins are available:
+**Tech Stack used:** React, TypeScript, Tailwind CSS, shadcn/ui
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Current Status
+- Chart and domain/skill structure defined in mock JSON data and mapped to components via custom hook.
+- `CompetenceChart` renders an SVG-based sunburst visualisation with:
+  - Proficiency rings and domain arcs with labels
+  - Tooltips on hover/click for domains and sub-skills
+- Mock/demo data is in place and ready for live data integration
+- Responsive and mobile-ready layout with extensibility
 
-## Expanding the ESLint configuration
+## Directions and Next Steps
+- **Data Integration:** Replace mock JSON/static data with production API integration
+- **Assessment Flow:** Implement pages and flows for assessment logic.
+- **Internationalisation:** Complete support for English/Vietnamese language toggle
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Setup and Development
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Requirements:**
+- Node.js (v18+ recommended)
+- npm or yarn for package manager
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Getting Started:**
+```bash
+# Clone the repository
+git clone https://github.com/HuyHG7502/DigitalCompetence.git
+cd DigitalCompetence
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Open https://localhost:5173 in your browser
 ```
