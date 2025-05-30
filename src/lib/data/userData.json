@@ -1,0 +1,210 @@
+{
+    "user": {
+      "id": "user_001",
+      "name": "Alex Nguyen",
+      "email": "alex.nguyen@example.com",
+      "language": "en"
+    },
+    "scores": [
+      {
+        "domain": "Information and Data Literacy",
+        "skill": "Digital Information Search",
+        "score": 61.4
+      },
+      {
+        "domain": "Information and Data Literacy",
+        "skill": "Data Evaluation",
+        "score": 50.6
+      },
+      {
+        "domain": "Information and Data Literacy",
+        "skill": "Digital Data Management",
+        "score": 67.1
+      },
+      {
+        "domain": "Information and Data Literacy",
+        "skill": "Data Analysis Fundamentals",
+        "score": 88.4
+      },
+      {
+        "domain": "Information and Data Literacy",
+        "skill": "Data Visualization",
+        "score": 59.6
+      },
+      {
+        "domain": "Communication and Collaboration",
+        "skill": "Digital Communication",
+        "score": 76.4
+      },
+      {
+        "domain": "Communication and Collaboration",
+        "skill": "Digital Collaboration",
+        "score": 51.6
+      },
+      {
+        "domain": "Communication and Collaboration",
+        "skill": "Online Meeting Management",
+        "score": 81.1
+      },
+      {
+        "domain": "Communication and Collaboration",
+        "skill": "Digital Content Sharing",
+        "score": 22.7
+      },
+      {
+        "domain": "Communication and Collaboration",
+        "skill": "Virtual Team Participation",
+        "score": 59.0
+      },
+      {
+        "domain": "Digital Content Creation",
+        "skill": "Document Creation",
+        "score": 35.4
+      },
+      {
+        "domain": "Digital Content Creation",
+        "skill": "Spreadsheet Development",
+        "score": 48.7
+      },
+      {
+        "domain": "Digital Content Creation",
+        "skill": "Presentation Design",
+        "score": 49.3
+      },
+      {
+        "domain": "Digital Content Creation",
+        "skill": "Digital Media Creation",
+        "score": 91.7
+      },
+      {
+        "domain": "Digital Content Creation",
+        "skill": "Website Development",
+        "score": 62.3
+      },
+      {
+        "domain": "Safety and Problem-Solving",
+        "skill": "Device Protection",
+        "score": 23.1
+      },
+      {
+        "domain": "Safety and Problem-Solving",
+        "skill": "Personal Data Protection",
+        "score": 70.6
+      },
+      {
+        "domain": "Safety and Problem-Solving",
+        "skill": "Digital Wellbeing",
+        "score": 34.2
+      },
+      {
+        "domain": "Safety and Problem-Solving",
+        "skill": "Technical Troubleshooting",
+        "score": 20.6
+      },
+      {
+        "domain": "Safety and Problem-Solving",
+        "skill": "Digital Environment Adaptation",
+        "score": 52.9
+      },
+      {
+        "domain": "Technology Tools and Applications",
+        "skill": "Productivity Suite Mastery",
+        "score": 58.4
+      },
+      {
+        "domain": "Technology Tools and Applications",
+        "skill": "Project Management Tools",
+        "score": 62.3
+      },
+      {
+        "domain": "Technology Tools and Applications",
+        "skill": "CRM and Business Systems",
+        "score": 51.9
+      },
+      {
+        "domain": "Technology Tools and Applications",
+        "skill": "Marketing Technology",
+        "score": 33.7
+      },
+      {
+        "domain": "Technology Tools and Applications",
+        "skill": "Financial Technology",
+        "score": 45.6
+      },
+      {
+        "domain": "Programming and Development",
+        "skill": "HTML/CSS",
+        "score": 70.2
+      },
+      {
+        "domain": "Programming and Development",
+        "skill": "JavaScript",
+        "score": 89.6
+      },
+      {
+        "domain": "Programming and Development",
+        "skill": "Python",
+        "score": 60.4
+      },
+      {
+        "domain": "Programming and Development",
+        "skill": "Database Management",
+        "score": 99.5
+      },
+      {
+        "domain": "Programming and Development",
+        "skill": "API Integration",
+        "score": 52.3
+      },
+      {
+        "domain": "AI and Automation",
+        "skill": "AI Literacy",
+        "score": 23.9
+      },
+      {
+        "domain": "AI and Automation",
+        "skill": "Prompt Engineering",
+        "score": 45.2
+      },
+      {
+        "domain": "AI and Automation",
+        "skill": "Workflow Automation",
+        "score": 10.4
+      },
+      {
+        "domain": "AI and Automation",
+        "skill": "Data Pipeline Management",
+        "score": 34.7
+      },
+      {
+        "domain": "AI and Automation",
+        "skill": "AI Ethics and Governance",
+        "score": 63.1
+      },
+      {
+        "domain": "Digital Business and Strategy",
+        "skill": "Digital Busness Models",
+        "score": 80.6
+      },
+      {
+        "domain": "Digital Business and Strategy",
+        "skill": "Digital Transformation",
+        "score": 75.9
+      },
+      {
+        "domain": "Digital Business and Strategy",
+        "skill": "E-commerce Implementation",
+        "score": 25.4
+      },
+      {
+        "domain": "Digital Business and Strategy",
+        "skill": "Digital Analytics Strategy",
+        "score": 48.5
+      },
+      {
+        "domain": "Digital Business and Strategy",
+        "skill": "Digital Innovation Management",
+        "score": 66.0
+      }
+    ]
+  }

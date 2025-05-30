@@ -1,0 +1,444 @@
+{
+  "domains": [
+    {
+      "name": "Information and Data Literacy",
+      "skills": [
+        {
+          "name": "Digital Information Search",
+          "levels": {
+            "Foundational": "Can perform basic searches using common search engines",
+            "Intermediate": "Can use advanced search operators and evaluate source credibility",
+            "Advanced": "Can utilize specialized databases and research tools with complex search strategies",
+            "Expert": "Can develop search methodologies for organizational knowledge management",
+            "Master": "Can design and implement enterprise search strategies and information retrieval systems"
+          }
+        },
+        {
+          "name": "Data Evaluation",
+          "levels": {
+            "Foundational": "Can identify basic reliability indicators in digital information",
+            "Intermediate": "Can systematically evaluate information using multiple criteria",
+            "Advanced": "Can perform comprehensve source analysis and detect misinformation patterns",
+            "Expert": "Can establish data validation frameworks for organizational use",
+            "Master": "Can develop methodologies for critical data evaluation at scale"
+          }
+        },
+        {
+          "name": "Digital Data Management",
+          "levels": {
+            "Foundational": "Can organize personal files in basic folder structures",
+            "Intermediate": "Can implement consistent file naming conventions and metadata",
+            "Advanced": "Can design comprehensive information architecture for projects",
+            "Expert": "Can develop data governance systems for departmental use",
+            "Master": "Can architect enterprise-wide data management solutions"
+          }
+        },
+        {
+          "name": "Data Analysis Fundamentals",
+          "levels": {
+            "Foundational": "Can perform basic calculations and create simple charts",
+            "Intermediate": "Can analyze patterns in datasets using spreadsheet functions",
+            "Advanced": "Can apply statistical methods and create dynamic data visualizations",
+            "Expert": "Can build predictive models and advanced analytical frameworks",
+            "Master": "Can design comprehensive data analysis systems with multiple integrated data sources"
+          }
+        },
+        {
+          "name": "Data Visualization",
+          "levels": {
+            "Foundational": "Can create basic charts and graphs",
+            "Intermediate": "Can select appropriate visualization types for different data",
+            "Advanced": "Can design interactive dashboards with multiple data views",
+            "Expert": "Can develop custom visualization systems for complex datasets",
+            "Master": "Can architect enterprise visualization frameworks with advanced user interactivity"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Communication and Collaboration",
+      "skills": [
+        {
+          "name": "Digital Communication",
+          "levels": {
+            "Foundational": "Can use email and basic messaging tools",
+            "Intermediate": "Can utilize multiple communication channels effectively",
+            "Advanced": "Can implement strategic communication across various digital platforms",
+            "Expert": "Can design communication frameworks for organizational use",
+            "Master": "Can develop communication strategies that transform organizational effectiveness"
+          }
+        },
+        {
+          "name": "Digital Collaboration",
+          "levels": {
+            "Foundational": "Can participate in shared documents and basic team tools",
+            "Intermediate": "Can actively contribute in multiple collaborative platforms",
+            "Advanced": "Can facilitate collaborative processes and optimize team workflows",
+            "Expert": "Can design collaborative systems for cross-functional teams",
+            "Master": "Can architect enterprise collaboration ecosystems that enhance organizational agility"
+          }
+        },
+        {
+          "name": "Online Meeting Management",
+          "levels": {
+            "Foundational": "Can join and participate in online meetings",
+            "Intermediate": "Can host and manage effective online meetings",
+            "Advanced": "Can facilitate complex virtual sessions with multiple stakeholders",
+            "Expert": "Can design virtual engagement frameworks for organizational use",
+            "Master": "Can develop innovative approaches to large-scale virtual collaboration"
+          }
+        },
+        {
+          "name": "Digital Content Sharing",
+          "levels": {
+            "Foundational": "Can share content via basic platforms",
+            "Intermediate": "Can select appropriate sharing channels based on content type",
+            "Advanced": "Can implement content distribution strategies across ecosystems",
+            "Expert": "Can design content dissemination frameworks for organizations",
+            "Master": "Can architect enterprise knowledge sharing systems that transform information flow"
+          }
+        },
+        {
+          "name": "Virtual Team Participation",
+          "levels": {
+            "Foundational": "Can function as a member of a virtual team",
+            "Intermediate": "Can contribute effectively across time zones and cultures",
+            "Advanced": "Can lead virtual teams with high performance outcomes",
+            "Expert": "Can design virtual team structures and processes",
+            "Master": "Can develop methodologies for scaling effective virtual team performance"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Digital Content Creation",
+      "skills": [
+        {
+          "name": "Document Creation",
+          "levels": {
+            "Foundational": "Can create basic documents with standard formatting",
+            "Intermediate": "Can create structured documents with advanced formatting",
+            "Advanced": "Can design comprehensive documents with integrated elements",
+            "Expert": "Can develop document templates and systems for organizational use",
+            "Master": "Can architect enterprise document frameworks with automated functionality"
+          }
+        },
+        {
+          "name": "Spreadsheet Development",
+          "levels": {
+            "Foundational": "Can create basic spreadsheets with simple formulas",
+            "Intermediate": "Can build structured spreadsheets with intermediate functions",
+            "Advanced": "Can develop comprehensive spreadsheets with advanced analytics",
+            "Expert": "Can design interconnected spreadsheet systems with dashboards",
+            "Master": "Can architect enterprise data solutions with advanced automation"
+          }
+        },
+        {
+          "name": "Presentation Design",
+          "levels": {
+            "Foundational": "Can create basic presentations with standard templates",
+            "Intermediate": "Can develop structured presentations with visual hierarchy",
+            "Advanced": "Can design professional presentations with advanced visual elements",
+            "Expert": "Can create presentation systems and frameworks for organizational use",
+            "Master": "Can develop innovative presentation methodologies that transform information delivery"
+          }
+        },
+        {
+          "name": "Digital Media Creation",
+          "levels": {
+            "Foundational": "Can produce simple digital images or recordings",
+            "Intermediate": "Can create and edit multiple media types effectively",
+            "Advanced": "Can develop integrated multimedia projects across platforms",
+            "Expert": "Can design media production frameworks for organizational use",
+            "Master": "Can architect enterprise media strategies that drive brand development"
+          }
+        },
+        {
+          "name": "Website Development",
+          "levels": {
+            "Foundational": "Can create basic web content using templates",
+            "Intermediate": "Can design and manage standard websites with CMS tools",
+            "Advanced": "Can develop custom websites with advanced functionality",
+            "Expert": "Can architect complex web ecosystems with multiple integrated systems",
+            "Master": "Can innovate web development approaches that define industry standards"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Safety and Problem-Solving",
+      "skills": [
+        {
+          "name": "Device Protection",
+          "levels": {
+            "Foundational": "Can implement basic device protection measures",
+            "Intermediate": "Can manage comprehensive security protocols across devices",
+            "Advanced": "Can develop customized security plans for multiple scenarios",
+            "Expert": "Can design security frameworks for organizational implementation",
+            "Master": "Can architect enterprise security strategies with advanced threat modeling"
+          }
+        },
+        {
+          "name": "Personal Data Protection",
+          "levels": {
+            "Foundational": "Can apply basic privacy settings and understand data sharing",
+            "Intermediate": "Can implement comprehensive privacy management across servicese",
+            "Advanced": "Can develop data protection strategies for various contexts",
+            "Expert": "Can create privacy frameworks for organizational implementation",
+            "Master": "Can architect enterprise privacy systems with regulatory compliance"
+          }
+        },
+        {
+          "name": "Digital Wellbeing",
+          "levels": {
+            "Foundational": "Can apply basic digital wellness practices",
+            "Intermediate": "Can implement comprehensive digital health management",
+            "Advanced": "Can develop personalized digital wellbeing strategies",
+            "Expert": "Can design wellness frameworks for organizational implementation",
+            "Master": "Can architect enterprise digital wellbeing programs that enhance productivity"
+          }
+        },
+        {
+          "name": "Technical Troubleshooting",
+          "levels": {
+            "Foundational": "Can resolve common technical issues using guides",
+            "Intermediate": "Can systematically identify and resolve technical problems",
+            "Advanced": "Can develop troubleshooting frameworks for complex systems",
+            "Expert": "Can design problem-solving methodologies for organizational use",
+            "Master": "Can architect enterprise support systems with predictive issue resolution"
+          }
+        },
+        {
+          "name": "Digital Environment Adaptation",
+          "levels": {
+            "Foundational": "Can adjust to changes in familiar digital tools",
+            "Intermediate": "Can quickly adapt to new digital environments and tools",
+            "Advanced": "Can seamlessly transition across diverse digital ecosystems",
+            "Expert": "Can develop change management frameworks for digital transformation",
+            "Master": "Can architect organizational adaptation strategies for emerging technologies"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Technology Tools and Applications",
+      "skills": [
+        {
+          "name": "Productivity Suite Mastery",
+          "levels": {
+            "Foundational": "Can use basic functions of office applications",
+            "Intermediate": "Can utilize advanced features across integrated applications",
+            "Advanced": "Can optimize productivity through custom solutions and automation",
+            "Expert": "Can develop productivity frameworks for organizational efficiency",
+            "Master": "Can architect enterprise productivity systems that transform workflows"
+          }
+        },
+        {
+          "name": "Project Management Tools",
+          "levels": {
+            "Foundational": "Can use basic project management applications",
+            "Intermediate": "Can utilize advanced PM features for team coordination",
+            "Advanced": "Can integrate multiple PM systems for complex project portfolios",
+            "Expert": "Can design PM methodologies and systems for organizational use",
+            "Master": "Can develop enterprise PM architectures that enhance organizational capability"
+          }
+        },
+        {
+          "name": "CRM and Business Systems",
+          "levels": {
+            "Foundational": "Can navigate and use basic CRM functions",
+            "Intermediate": "Can utilize advanced CRM features and generate reports",
+            "Advanced": "Can optimize CRM processes and develop custom implementations",
+            "Expert": "Can design comprehensive CRM strategies for organizational use",
+            "Master": "Can architect enterprise CRM ecosystems that transform customer relationships"
+          }
+        },
+        {
+          "name": "Marketing Technology",
+          "levels": {
+            "Foundational": "Can use basic digital marketing tools",
+            "Intermediate": "Can implement campaigns across multiple marketing platforms",
+            "Advanced": "Can optimize integrated marketing technology ecosystems",
+            "Expert": "Can design MarTech strategies for organizational implementation",
+            "Master": "Can develop innovative MarTech architectures that define industry approaches"
+          }
+        },
+        {
+          "name": "Financial Technology",
+          "levels": {
+            "Foundational": "Can use basic financial applications and tools",
+            "Intermediate": "Can implement financial systems with reporting capabilities",
+            "Advanced": "Can optimize financial technology for enhanced business insights",
+            "Expert": "Can design FinTech strategies for organizational implementation",
+            "Master": "Can architect enterprise financial systems that transform business operations"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Programming and Development",
+      "skills": [
+        {
+          "name": "HTML/CSS",
+          "levels": {
+            "Foundational": "Can create simple web pages with basic elements",
+            "Intermediate": "Can develop structured websites with responsive design",
+            "Advanced": "Can implement advanced web interfaces with custom CSS frameworks",
+            "Expert": "Can design comprehensive front-end architecture for complex sites",
+            "Master": "Can develop innovative web standards and methodologies"
+          }
+        },
+        {
+          "name": "JavaScript",
+          "levels": {
+            "Foundational": "Can implement basic interactive elements",
+            "Intermediate": "Can create dynamic web applications with standard frameworks",
+            "Advanced": "Can develop complex applications with advanced JavaScript patterns",
+            "Expert": "Can architect comprehensive JavaScript solutions for enterprise needs",
+            "Master": "Can innovate JavaScript methodologies that influence industry practices"
+          }
+        },
+        {
+          "name": "Python",
+          "levels": {
+            "Foundational": "Can write simple scripts for basic automation",
+            "Intermediate": "Can develop structured applications with multiple functions",
+            "Advanced": "Can create comprehensive Python applications with advanced libraries",
+            "Expert": "Can design Python frameworks for organizational implementation",
+            "Master": "Can architect enterprise Python ecosystems that transform business processes"
+          }
+        },
+        {
+          "name": "Database Management",
+          "levels": {
+            "Foundational": "Can perform basic database operations",
+            "Intermediate": "Can design normalized databases with standard queries",
+            "Advanced": "Can optimize database performance and implement complex queries",
+            "Expert": "Can design database architectures for enterprise applications",
+            "Master": "Can develop innovative database methodologies for large-scale implementation"
+          }
+        },
+        {
+          "name": "API Integration",
+          "levels": {
+            "Foundational": "Can connect to APIs with provided code",
+            "Intermediate": "Can implement API integration with error handling",
+            "Advanced": "Can develop comprehensive API strategies across platforms",
+            "Expert": "Can design API architectures for organizational systems",
+            "Master": "Can develop API frameworks that establish industry standards"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI and Automation",
+      "skills": [
+        {
+          "name": "AI Literacy",
+          "levels": {
+            "Foundational": "Can understand basic AI concepts and applications",
+            "Intermediate": "Can effectively use AI tools for productivity enhancement",
+            "Advanced": "Can implement AI solutions for specific business challenges",
+            "Expert": "Can design AI strategies for organizational transformation",
+            "Master": "Can develop innovative AI frameworks that redefine industry approaches"
+          }
+        },
+        {
+          "name": "Prompt Engineering",
+          "levels": {
+            "Foundational": "Can write basic prompts for AI tools",
+            "Intermediate": "Can create structured prompts with effective parameters",
+            "Advanced": "Can develop comprehensive prompt strategies for complex tasks",
+            "Expert": "Can design prompt frameworks for organizational implementation",
+            "Master": "Can architect enterprise prompt systems that transform AI utilization"
+          }
+        },
+        {
+          "name": "Workflow Automation",
+          "levels": {
+            "Foundational": "Can use pre-built automation templates",
+            "Intermediate": "Can create custom automations for specific processes",
+            "Advanced": "Can develop integrated automation systems across platforms",
+            "Expert": "Can design automation strategies for organizational efficiency",
+            "Master": "Can architect enterprise automation frameworks that transform operations"
+          }
+        },
+        {
+          "name": "Data Pipeline Management",
+          "levels": {
+            "Foundational": "Can execute basic data workflows",
+            "Intermediate": "Can develop structured data pipelines with validation",
+            "Advanced": "Can optimize complex data pipelines with advanced integration",
+            "Expert": "Can design enterprise data flow architectures",
+            "Master": "Can develop innovative data pipeline methodologies"
+          }
+        },
+        {
+          "name": "AI Ethics and Governance",
+          "levels": {
+            "Foundational": "Can identify basic ethical considerations in AI",
+            "Intermediate": "Can implement ethical guidelines in AI applications",
+            "Advanced": "Can develop comprehensive ethics frameworks for AI systems",
+            "Expert": "Can design organizational AI governance systems",
+            "Master": "Can architect enterprise AI ethics approaches that influence industry standards"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Digital Business and Strategy",
+      "skills": [
+        {
+          "name": "Digital Business Models",
+          "levels": {
+            "Foundational": "Can understand basic digital business concepts",
+            "Intermediate": "Can analyze digital business models effectively",
+            "Advanced": "Can develop digital business strategies for market opportunities",
+            "Expert": "Can design transformative business models for organizations",
+            "Master": "Can architect industry-changing digital business approaches"
+          }
+        },
+        {
+          "name": "Digital Transformation",
+          "levels": {
+            "Foundational": "Can participate in digital change initiatives",
+            "Intermediate": "Can implement digital transformation projects",
+            "Advanced": "Can lead comprehensive digital transformation programs",
+            "Expert": "Can design organizational digital transformation strategies",
+            "Master": "Can develop innovative digital transformation frameworks"
+          }
+        },
+        {
+          "name": "E-commerce Implementation",
+          "levels": {
+            "Foundational": "Can manage basic online selling functions",
+            "Intermediate": "Can develop structured e-commerce operations",
+            "Advanced": "Can optimize complex e-commerce ecosystems",
+            "Expert": "Can design comprehensive e-commerce strategies",
+            "Master": "Can architect enterprise e-commerce systems that define market approaches"
+          }
+        },
+        {
+          "name": "Digital Analytics Strategy",
+          "levels": {
+            "Foundational": "Can use basic analytics for business insights",
+            "Intermediate": "Can implement analytics frameworks across touchpoints",
+            "Advanced": "Can develop comprehensive analytics strategies for organizations",
+            "Expert": "Can design analytics architectures that drive organizational decisions",
+            "Master": "Can innovate analytics approaches that transform industry practices"
+          }
+        },
+        {
+          "name": "Digital Innovation Management",
+          "levels": {
+            "Foundational": "Can contribute to digital innovation initiatives",
+            "Intermediate": "Can implement digital innovation processes",
+            "Advanced": "Can lead digital innovation programs with measurable outcomes",
+            "Expert": "Can design innovation frameworks for organizational implementation",
+            "Master": "Can develop systematic innovation methodologies that define industry standards"
+          }
+        }
+      ]
+    }
+  ]
+}
