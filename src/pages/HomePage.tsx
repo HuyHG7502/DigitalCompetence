@@ -22,8 +22,8 @@ export default function HomePage() {
     }));
 
     return (
-        <div className="w-full max-w-screen overflow-x-hidden">
-            <div className="min-h-screen w-full px-4 py-6 sm:px-6">
+        <div className="w-full overflow-x-hidden">
+            <div className="mx-auto min-h-screen max-w-7xl px-4 py-6 sm:px-6">
                 <div className="mb-10 flex flex-col items-center justify-center gap-4">
                     <div className="flex w-full flex-col justify-between gap-3 md:flex-row">
                         <div className="order-1 flex flex-col items-end gap-3 text-sm md:order-0 md:items-start">
@@ -45,13 +45,12 @@ export default function HomePage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 items-center justify-center space-y-8 lg:grid-cols-3 lg:gap-8">
+                <div className="mx-auto grid w-fit grid-cols-1 items-center justify-center space-y-8 lg:grid-cols-3 lg:gap-8">
                     <CompetenceChart domains={coloredDomains} randomizeScores={randomizeScores} />
 
-                    <div className="w-full space-y-8">
-                        {/* Start */}
+                    <div className="w-full max-w-md space-y-8">
                         <div className="rounded-lg bg-green-600 p-4 text-white">
-                            <div className="mb-2 text-2xl font-bold">START</div>
+                            <div className="mb-2 text-center text-2xl font-bold">START</div>
                             <p className="mb-4 text-sm">
                                 Test your digital competencies and get your personal report for free
                             </p>

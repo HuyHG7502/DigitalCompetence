@@ -2,7 +2,8 @@ import type { ProficiencyLevel } from '@/hooks/useCompetenceData';
 import { lightenColor } from '@/utils/colorUtils';
 import { getProficiencyLevel } from '@/utils/dataUtils';
 import { getLevelFromScore, getSkillAngleRange, getRingPath, polarRadToCartesian } from '@/utils/radialUtils';
-import { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface Skill {
     name: string;
@@ -48,18 +49,10 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
     } | null>(null);
     const [activeSkillKey, setActiveSkillKey] = useState<string | null>(null);
     const [activeDomainKey, setActiveDomainKey] = useState<string | null>(null);
+    const [baseRadius, setBaseRadius] = useState(40);
 
     const containerRef = useRef<HTMLDivElement>(null);
-
-    const centerX = dimensions.width / 2;
-    const centerY = dimensions.height / 2;
-    const baseRadius = 60;
     const baseMargin = 40;
-
-    const ringStep = (dimensions.width / 2 - baseRadius - baseMargin) / 5;
-
-    const arcInnerRadius = baseRadius + 5 * ringStep + 15;
-    const arcOuterRadius = arcInnerRadius + 5;
     const domainArcGap = 2;
 
     useEffect(() => {
@@ -73,6 +66,9 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                     width: clamped,
                     height: clamped,
                 });
+
+                const respRadius = Math.max(20, Math.min(40, clamped / 8));
+                setBaseRadius(respRadius);
             }
         });
 
@@ -88,6 +84,15 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
         }, 3000);
         return () => clearInterval(interval);
     }, [randomizeScores]);
+
+    const { ringStep, arcInnerRadius, arcOuterRadius, chartRadius } = useMemo(() => {
+        const chartRadius = dimensions.width / 2;
+        const ringStep = Math.max(0, (chartRadius - baseRadius - baseMargin) / 5);
+        const arcInnerRadius = baseRadius + 5 * ringStep + 15;
+        const arcOuterRadius = arcInnerRadius + 5;
+
+        return { ringStep, arcInnerRadius, arcOuterRadius, chartRadius };
+    }, [dimensions.width, baseRadius]);
 
     const handleMouseEnter = (
         e: React.MouseEvent,
@@ -132,7 +137,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                                     fy="50%"
                                 >
                                     <stop offset="0%" stopColor={domain.color} />
-                                    <stop offset="100%" stopColor={lightenColor(domain.color, 25)} />
+                                    <stop offset="100%" stopColor={lightenColor(domain.color, 40)} />
                                 </radialGradient>
                             );
                         })
@@ -152,8 +157,8 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                         const startAngle = rawStartAngle + labelArcGap / 2 - Math.PI / 2;
                         const endAngle = rawEndAngle - labelArcGap / 2 - Math.PI / 2;
 
-                        const pathStart = polarRadToCartesian(centerX, centerY, textRadius, startAngle);
-                        const pathEnd = polarRadToCartesian(centerX, centerY, textRadius, endAngle);
+                        const pathStart = polarRadToCartesian(chartRadius, chartRadius, textRadius, startAngle);
+                        const pathEnd = polarRadToCartesian(chartRadius, chartRadius, textRadius, endAngle);
                         const largeArcFlag = endAngle - startAngle > 180 ? 1 : 0;
 
                         return (
@@ -171,8 +176,8 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                 {[1, 2, 3, 4, 5].map(level => (
                     <circle
                         key={level}
-                        cx={centerX}
-                        cy={centerY}
+                        cx={chartRadius}
+                        cy={chartRadius}
                         r={baseRadius + level * ringStep}
                         fill="#ffffff"
                         stroke="#eeeeee"
@@ -183,13 +188,13 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
 
                 {domains.map((_, index) => {
                     const angle = (index * 2 * Math.PI) / domains.length - Math.PI / 2;
-                    const outerPoint = polarRadToCartesian(centerX, centerY, dimensions.width / 2, angle);
+                    const outerPoint = polarRadToCartesian(chartRadius, chartRadius, dimensions.width / 2, angle);
 
                     return (
                         <line
                             key={index}
-                            x1={centerX}
-                            y1={centerY}
+                            x1={chartRadius}
+                            y1={chartRadius}
                             x2={outerPoint.x}
                             y2={outerPoint.y}
                             stroke="#eeeeee"
@@ -212,20 +217,35 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                     const endAngle = rawEndAngle - domainArcGap;
 
                     const bgPath = getRingPath(
-                        centerX,
-                        centerY,
+                        chartRadius,
+                        chartRadius,
                         arcInnerRadius,
                         arcOuterRadius,
                         startAngle,
                         rawStartAngle + domainAngle - domainArcGap
                     );
-                    const path = getRingPath(centerX, centerY, arcInnerRadius, arcOuterRadius, startAngle, endAngle);
+                    const path = getRingPath(
+                        chartRadius,
+                        chartRadius,
+                        arcInnerRadius,
+                        arcOuterRadius,
+                        startAngle,
+                        endAngle
+                    );
 
                     return (
-                        <>
+                        <React.Fragment key={domain.name}>
                             <path key={`domain-bg-${domain.name}`} d={bgPath} fill="#999999" opacity={0.85} />
-                            <path key={`domain-arc-${domain.name}`} d={path} fill={domain.color} opacity={0.85} />
-                        </>
+                            <path
+                                key={`domain-arc-${domain.name}`}
+                                d={path}
+                                fill={domain.color}
+                                opacity={0.85}
+                                style={{
+                                    transition: 'all 0.5s ease',
+                                }}
+                            />
+                        </React.Fragment>
                     );
                 })}
 
@@ -260,21 +280,21 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                     const startAngle = angle * domainIndex;
                     const endAngle = startAngle + angle;
 
-                    const path = getRingPath(centerX, centerY, 0, baseRadius, startAngle, endAngle);
+                    const path = getRingPath(chartRadius, chartRadius, 0, baseRadius, startAngle, endAngle);
 
                     return (
                         <path
                             key={domain.name}
                             d={path}
                             fill={`${domain.color}`}
-                            opacity={isActive ? 1 : 0.6}
-                            stroke={isActive ? '#1e293b' : '#0f172a'}
+                            opacity={isActive ? 1 : 0.8}
+                            stroke={isActive ? domain.color : '#45556c'}
                             strokeWidth={isActive ? 2 : 1}
                             className="hover:opacity-80"
                             style={{
                                 filter: isActive ? 'drop-shadow(0 0 4px rgba(0,0,0,0.5))' : undefined,
                                 cursor: 'pointer',
-                                transition: 'all 0.2s ease',
+                                transition: 'all 0.5s ease',
                             }}
                             onMouseEnter={e => {
                                 const level = getProficiencyLevel(domain.score);
@@ -291,7 +311,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
 
                 {/* Skill Segments */}
                 {domains.map((domain, domainIndex) => (
-                    <g key={domain.name}>
+                    <g key={domain.name} style={{ transition: 'all 0.5s ease-in-out' }}>
                         {domain.skills.map((skill, skillIndex) => {
                             const level = getLevelFromScore(skill.score);
                             const inner = baseRadius;
@@ -303,7 +323,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                                 domain.skills.length
                             );
 
-                            const path = getRingPath(centerX, centerY, inner, outer, startAngle, endAngle);
+                            const path = getRingPath(chartRadius, chartRadius, inner, outer, startAngle, endAngle);
                             const gradientId = `gradient-${domain.name}-${skill.name}`.replace(/\s+/g, '-');
 
                             const skillKey = `${domain.name}-${skill.name}`;
@@ -314,13 +334,13 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, rando
                                     key={skillKey}
                                     d={path}
                                     fill={`url(#${gradientId})`}
-                                    opacity={isActive ? 1 : 0.6}
-                                    stroke={isActive ? '#1e293b' : '#0f172a'}
+                                    opacity={isActive ? 1 : 0.8}
+                                    stroke={isActive ? domain.color : '#45556c'}
                                     strokeWidth={isActive ? 2 : 1}
                                     style={{
-                                        filter: isActive ? 'drop-shadow(0 0 4px rgba(0,0,0,0.5))' : undefined,
+                                        filter: isActive ? `drop-shadow(0 0 4px ${domain.color})` : undefined,
                                         cursor: 'pointer',
-                                        transition: 'all 0.2s ease',
+                                        transition: 'all 0.5s ease-in-out',
                                     }}
                                     onMouseEnter={e => {
                                         setActiveSkillKey(skillKey);

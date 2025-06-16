@@ -8,7 +8,7 @@ function App() {
         <Router basename="/DigitalCompetence">
             <div className="flex min-h-screen max-w-screen bg-slate-800 text-white">
                 <Sidebar />
-                <main className="flex-1">
+                <main className="ml-[40px] flex-1 lg:ml-0">
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                     </Routes>
