@@ -1,25 +1,20 @@
 import { Languages } from '@/components/Languages';
 import { Partners } from '@/components/Partners';
 import { Button } from '@/components/ui/button';
-import { CompetenceChart } from '@/components/chart/CompetenceChart';
-import { useCompetenceData } from '@/hooks/useCompetenceData';
-import { calculateDomainScore } from '@/utils/dataUtils';
-
-const domainColors = ['#cc0001', '#fb940b', '#ffff01', '#01cc00', '#03c0c6', '#0000fe', '#762ca7', '#fe98bf'];
+import { CompetenceChart } from '@/components/chart/Wheel';
+import { useData } from '@/hooks/useData';
+import { useEffect } from 'react';
 
 export default function HomePage() {
-    const { domains, randomizeScores } = useCompetenceData();
+    const { domains, enrichScores } = useData();
 
-    const coloredDomains = domains.map((domain, i) => ({
-        ...domain,
-        score: calculateDomainScore(domain.skills),
-        color: domainColors[i % domainColors.length],
-        skills: domain.skills.map(skill => ({
-            ...skill,
-            color: domainColors[i % domainColors.length],
-            score: skill.score ?? 0,
-        })),
-    }));
+    useEffect(() => {
+        if (!enrichScores) return;
+        const interval = setInterval(() => {
+            enrichScores();
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [enrichScores]);
 
     return (
         <div className="w-full overflow-x-hidden">
@@ -46,7 +41,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="mx-auto grid w-fit grid-cols-1 items-center justify-center space-y-8 lg:grid-cols-3 lg:gap-8">
-                    <CompetenceChart domains={coloredDomains} randomizeScores={randomizeScores} />
+                    <CompetenceChart domains={domains} />
 
                     <div className="w-full max-w-md space-y-8">
                         <div className="rounded-lg bg-green-600 p-4 text-white">

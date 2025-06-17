@@ -97,3 +97,7 @@ export function getSkillAngleRange(
     const endAngle = startAngle + anglePerSkill * 0.9;
     return [startAngle, endAngle];
 }
+
+export function getGradientId(domainId: string, skillId: string): string {
+    return `gradient-${domainId}-${skillId}`.replace(/\s+/g, '-');
+}

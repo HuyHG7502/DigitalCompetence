@@ -1,4 +1,4 @@
-import type { ProficiencyLevel } from '@/hooks/useCompetenceData';
+import type { ProficiencyLevel, Skill } from '@/types/competence';
 
 export function getProficiencyLevel(score: number): ProficiencyLevel {
     if (score >= 80) return 'Master';
@@ -8,9 +8,9 @@ export function getProficiencyLevel(score: number): ProficiencyLevel {
     return 'Foundational';
 }
 
-export function calculateDomainScore(skills: { score: number }[]): number {
+export function getDomainScore(skills: Skill[]): number {
     if (skills.length === 0) return 0;
 
-    const totalScore = skills.reduce((sum, skill) => sum + skill.score, 0);
-    return Math.round(totalScore / skills.length);
+    const total = skills.reduce((sum, skill) => sum + skill.score, 0);
+    return Math.round(total / skills.length);
 }
