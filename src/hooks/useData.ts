@@ -1,78 +1,45 @@
-import { useEffect, useState } from 'react';
-import { getDomainScore, getProficiencyLevel } from '@/utils/dataUtils';
-import { getDocs, collection } from 'firebase/firestore';
-import { db } from '@/lib/firebase';
-import type { BaseDomain, BaseSkill, Domain, Skill, ProficiencyLevel } from '@/types/competence';
+import { useEffect, useMemo, useState } from 'react';
 import { mapDomainColors } from '@/utils/colorUtils';
-
-import userData from '@/lib/data/userData.json';
-
-function mapDomainScores(domain: BaseDomain | Domain, randomised: boolean = false): Domain {
-    const skills: Skill[] = domain.skills.map(skill => {
-        const score = randomised ? Math.floor(Math.random() * 101) : 0;
-        const level: ProficiencyLevel = getProficiencyLevel(score);
-        return {
-            ...skill,
-            score,
-            level,
-        };
-    });
-
-    const domainScore = getDomainScore(skills);
-    const domainLevel = getProficiencyLevel(domainScore);
-
-    return {
-        ...domain,
-        skills,
-        score: domainScore,
-        level: domainLevel,
-        color: (domain as Domain).color || '',
-    };
-}
+import { fetchDomainsWithSkills } from '@/services/skillService';
+import type { Domain, Skill } from '@/types/competence';
 
 export function useData() {
     const [domains, setDomains] = useState<Domain[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function fetchData() {
-            const domainSnapshot = await getDocs(collection(db, 'domains'));
-            const baseDomains: BaseDomain[] = [];
-
-            for (const domainDoc of domainSnapshot.docs) {
-                const domainId = domainDoc.id;
-                const domainInfo = domainDoc.data();
-                const skillsSnapshot = await getDocs(collection(db, 'domains', domainId, 'skills'));
-
-                const skills: BaseSkill[] = skillsSnapshot.docs.map(skillDoc => {
-                    const skill = skillDoc.data();
-                    return {
-                        id: skillDoc.id,
-                        name: skill.name,
-                        description: skill.description,
-                        levels: skill.levels,
-                    };
-                });
-
-                baseDomains.push({
-                    id: domainId,
-                    name: domainInfo.name,
-                    description: domainInfo.description,
-                    skills,
-                });
-            }
-
-            const withScores = baseDomains.map(domain => mapDomainScores(domain));
-            const withColors = mapDomainColors(withScores);
+            const baseDomains = await fetchDomainsWithSkills();
+            const withColors = mapDomainColors(baseDomains);
 
             setDomains(withColors);
+            setIsLoading(false);
         }
 
         fetchData();
     }, []);
 
-    function enrichScores() {
-        setDomains(domains => domains.map(domain => mapDomainScores(domain, true)));
-    }
+    const skills = useMemo(() => {
+        return domains.flatMap(domain => domain.skills);
+    }, [domains]);
 
-    return { user: userData.user, domains, enrichScores };
+    const domainsMap = useMemo(() => {
+        const map: Record<string, Domain> = {};
+        for (const domain of domains) {
+            map[domain.id] = domain;
+        }
+        return map;
+    }, [domains]);
+
+    const skillsMap = useMemo(() => {
+        const map: Record<string, Skill> = {};
+        for (const domain of domains) {
+            for (const skill of domain.skills) {
+                map[skill.id] = skill;
+            }
+        }
+        return map;
+    }, [domains]);
+
+    return { domains, skills, domainsMap, skillsMap, isLoading };
 }

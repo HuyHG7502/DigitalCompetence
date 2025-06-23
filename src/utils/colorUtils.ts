@@ -61,5 +61,5 @@ export function mapDomainColors<T extends { id: string }>(domains: T[]): (T & { 
 
 export function mapDomainGradient(hex: string): string {
     const hex2 = domainColors[domainColors.indexOf(hex) + 1] || domainColors[0];
-    return interpolateColor(hex, hex2, 50);
+    return interpolateColor(hex, hex2, 75);
 }

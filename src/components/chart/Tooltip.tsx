@@ -1,5 +1,6 @@
 import React from 'react';
-import type { Domain, ProficiencyLevel } from '@/types/competence';
+import type { ProficiencyLevel } from '@/types/competence';
+import type { ChartDomain } from '@/types/chart';
 
 interface TooltipProps {
     tooltip: {
@@ -10,7 +11,7 @@ interface TooltipProps {
         domainId?: number;
         skillId?: number;
     };
-    domains: Domain[];
+    domains: ChartDomain[];
     containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -25,7 +26,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ tooltip, domains, containerRef
 
     return (
         <div
-            className="animate-in slide-in-from-bottom pointer-events-none absolute z-10 flex h-fit w-full max-w-[320px] rounded-xl border-2 bg-slate-900 p-4 text-sm shadow-lg backdrop-blur-sm md:max-w-sm"
+            className="animate-in slide-in-from-bottom pointer-events-none absolute z-10 flex h-fit w-full max-w-[300px] rounded-xl border-2 bg-slate-900 p-4 text-sm shadow-lg backdrop-blur-sm md:max-w-sm"
             style={{
                 top,
                 left,
@@ -44,7 +45,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ tooltip, domains, containerRef
                         {level}
                     </div>
                 </div>
-                {skill && <div className="text-xs text-slate-300">{skill.levels[level]}</div>}{' '}
+                {skill && <div className="text-xs text-slate-300">{skill.levels[skill.level]}</div>}{' '}
             </div>
         </div>
     );

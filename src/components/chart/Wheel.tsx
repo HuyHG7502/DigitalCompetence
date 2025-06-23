@@ -3,11 +3,12 @@ import { getProficiencyLevel } from '@/utils/dataUtils';
 import { getLevelFromScore, getSkillAngleRange, getRingPath, polarRadToCartesian } from '@/utils/chartUtils';
 import React, { useCallback } from 'react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { ProficiencyLevel, Domain } from '@/types/competence';
 import { Tooltip } from './Tooltip';
+import type { ProficiencyLevel } from '@/types/competence';
+import type { ChartDomain } from '@/types/chart';
 
 interface CompetenceChartProps {
-    domains: Domain[];
+    domains: ChartDomain[];
     size?: number;
 }
 
@@ -137,17 +138,32 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, size 
     };
 
     const renderRings = () => {
+        const isLoading = domains.length === 0 || domains === undefined || domains === null;
+
         return [1, 2, 3, 4, 5].map(level => (
-            <circle
-                key={level}
-                cx={chartRadius}
-                cy={chartRadius}
-                r={baseRadius + level * ringStep}
-                fill="#ffffff"
-                stroke="#eeeeee"
-                strokeWidth={1}
-                opacity={0.1}
-            />
+            <React.Fragment key={level}>
+                <circle
+                    key={level}
+                    cx={chartRadius}
+                    cy={chartRadius}
+                    r={baseRadius + level * ringStep}
+                    fill="#020618"
+                    stroke="#f8fafc"
+                    strokeWidth={1}
+                    opacity={0.25}
+                    style={{
+                        animation: isLoading ? 'pulseRing 1.5s cubic-bezier(0.4,0,0.6,1) infinite' : 'none',
+                    }}
+                />
+                <style>
+                    {`
+                        @keyframes pulseRing {
+                            0%, 100% { opacity: 0.3; }
+                            50% { opacity: 1; }
+                        }
+                    `}
+                </style>
+            </React.Fragment>
         ));
     };
 
@@ -195,7 +211,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, size 
 
             return (
                 <React.Fragment key={domain.name}>
-                    <path key={`domain-bg-${domain.name}`} d={bgPath} fill="#999999" opacity={0.85} />
+                    <path key={`domain-bg-${domain.name}`} d={bgPath} fill="#cccccc" opacity={0.85} />
                     <path
                         key={`domain-arc-${domain.name}`}
                         d={path}
@@ -250,7 +266,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, size 
                     key={domain.name}
                     d={path}
                     fill={`${domain.color}`}
-                    opacity={isActive ? 1 : 0.8}
+                    opacity={isActive ? 1 : domain.score / 50}
                     stroke={isActive ? domain.color : '#45556c'}
                     strokeWidth={isActive ? 2 : 1}
                     className="hover:opacity-80"
@@ -279,7 +295,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, size 
                 {domain.skills.map((skill, skillIndex) => {
                     const level = getLevelFromScore(skill.score);
                     const inner = baseRadius;
-                    const outer = baseRadius + level * ringStep;
+                    const outer = baseRadius + (skill.score * ringStep) / 20;
                     const [startAngle, endAngle] = getSkillAngleRange(
                         domainIndex,
                         skillIndex,

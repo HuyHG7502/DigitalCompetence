@@ -1,19 +1,93 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from '@/components/layout/Sidebar';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
-import HomePage from './pages/HomePage';
+import React from 'react';
+import Sidebar from '@/components/layout/Sidebar';
+import { Loading } from '@/components/loading/Loading';
+import { AssessmentProvider } from '@/contexts/assessment/AssessmentProvider';
+
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const AssessmentPage = React.lazy(() => import('./pages/AssessmentPage'));
+const ReportPage = React.lazy(() => import('./pages/ReportPage'));
+
+const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <div className="bg-background text-foreground flex min-h-screen max-w-screen">
+            <Sidebar />
+            <main className="ml-[40px] flex-1 lg:ml-0">{children}</main>
+        </div>
+    );
+};
+
+const AppLayout = () => {
+    const location = useLocation();
+    const isAssessmentRoute = /^\/assessment\//.test(location.pathname);
+
+    // Only use useParams if on assessment route
+    let assessmentId: string | undefined = undefined;
+    if (isAssessmentRoute) {
+        const match = location.pathname.match(/^\/assessment\/([^/]+)/);
+        assessmentId = match ? match[1] : undefined;
+    }
+
+    const content = (
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <LayoutWrapper>
+                        <HomePage />
+                    </LayoutWrapper>
+                }
+            />
+            <Route
+                path="info"
+                element={
+                    <LayoutWrapper>
+                        <HomePage />
+                    </LayoutWrapper>
+                }
+            />
+            <Route
+                path="assessment/:assessmentId"
+                element={
+                    <LayoutWrapper>
+                        <AssessmentPage />
+                    </LayoutWrapper>
+                }
+            />
+            <Route
+                path="report/:assessmentId/*"
+                element={
+                    <LayoutWrapper>
+                        <ReportPage />
+                    </LayoutWrapper>
+                }
+            />
+            <Route
+                path="*"
+                element={
+                    <LayoutWrapper>
+                        <Loading message="404 Not Found" />
+                    </LayoutWrapper>
+                }
+            />
+        </Routes>
+    );
+
+    // Conditionally wrap in AssessmentProvider
+    return isAssessmentRoute && assessmentId ? (
+        <AssessmentProvider assessmentId={assessmentId}>{content}</AssessmentProvider>
+    ) : (
+        content
+    );
+};
 
 function App() {
     return (
-        <Router basename="/DigitalCompetence">
-            <div className="flex min-h-screen max-w-screen bg-slate-800 text-white">
-                <Sidebar />
-                <main className="ml-[40px] flex-1 lg:ml-0">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                    </Routes>
-                </main>
-            </div>
+        <Router basename="/digital-competence/">
+            <Routes>
+                <Route path="/*" element={<AppLayout />} />
+            </Routes>
         </Router>
     );
 }

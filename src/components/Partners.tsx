@@ -15,7 +15,7 @@ export function Partners() {
             {partners.map(partner => (
                 <img
                     key={partner.name}
-                    src={`/DigitalCompetence/assets/partners/${partner.src}`}
+                    src={`/digital-competence/assets/partners/${partner.src}`}
                     alt={partner.name}
                     className="h-4 stroke-white opacity-70 transition-opacity hover:opacity-100 lg:h-6"
                 />

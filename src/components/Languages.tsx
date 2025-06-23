@@ -23,7 +23,7 @@ export function Languages() {
                 >
                     <img
                         aria-label={lang.label}
-                        src={`/DigitalCompetence/assets/flags/${lang.code}.svg`}
+                        src={`/digital-competence/assets/flags/${lang.code}.svg`}
                         alt={lang.label}
                         className="size-6"
                     />

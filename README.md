@@ -28,8 +28,8 @@ This project implements a digital competence assessment and visualisation tool i
 **Getting Started:**
 ```bash
 # Clone the repository
-git clone https://github.com/HuyHG7502/DigitalCompetence.git
-cd DigitalCompetence
+git clone https://github.com/HuyHG7502/digital-competence.git
+cd digital-competence
 
 
 # Install dependencies

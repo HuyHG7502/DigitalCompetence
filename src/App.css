@@ -8,5 +8,9 @@
 }
 
 .nav-link {
-    @apply flex items-center gap-2 rounded py-2 text-xs leading-normal font-medium text-slate-300 hover:bg-slate-800 hover:text-white lg:px-3;
+    @apply flex items-center gap-2 rounded py-2 text-xs leading-normal font-medium lg:px-3;
+}
+
+button {
+    @apply focus:outline-none;
 }

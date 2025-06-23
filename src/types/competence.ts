@@ -1,27 +1,17 @@
 export type ProficiencyLevel = 'Foundational' | 'Intermediate' | 'Advanced' | 'Expert' | 'Master';
 
-export interface BaseSkill {
+export interface Skill {
     id: string;
     name: string;
     description: string;
     levels: Record<ProficiencyLevel, string>;
+    domainId: string;
 }
 
-export interface BaseDomain {
+export interface Domain {
     id: string;
     name: string;
     description: string;
-    skills: BaseSkill[];
-}
-
-export interface Skill extends BaseSkill {
-    score: number;
-    level: ProficiencyLevel;
-}
-
-export interface Domain extends BaseDomain {
-    skills: Skill[];
-    score: number;
-    level: ProficiencyLevel;
     color: string;
+    skills: Skill[];
 }
