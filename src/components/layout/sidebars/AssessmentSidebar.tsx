@@ -24,7 +24,7 @@ export default function AssessmentSidebar({ ctx, isOpen, isMobile }: AssessmentS
             <div className={cn('border-border border-b py-4', isOpen || !isMobile ? 'px-2' : 'px-1')}>
                 {isOpen || !isMobile ? (
                     <div className="my-2 space-y-3 px-1">
-                        <h3 className="text-accent text-sm font-bold">Progress</h3>
+                        <h3 className="text-accent-foreground text-sm font-bold">Progress</h3>
                         <div className="flex justify-between text-xs">
                             <span>Completed</span>
                             <span>
