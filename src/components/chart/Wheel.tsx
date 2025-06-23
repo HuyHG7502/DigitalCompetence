@@ -338,7 +338,7 @@ export const CompetenceChart: React.FC<CompetenceChartProps> = ({ domains, size 
     };
 
     return (
-        <div ref={containerRef} className="relative col-span-2 flex w-full max-w-screen justify-center">
+        <div ref={containerRef} className="relative col-span-2 flex w-full max-w-screen items-center justify-center">
             <svg
                 width={dimensions.width}
                 height={dimensions.height}

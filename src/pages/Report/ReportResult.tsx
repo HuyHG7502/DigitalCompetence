@@ -117,19 +117,18 @@ export function ReportResult({
                     </div>
                 </div>
                 <div className="mt-12 flex flex-col gap-4 md:flex-row">
-                    <div className="flex max-w-xs flex-col gap-2 lg:max-w-md">
+                    <div className="flex flex-col gap-2 sm:max-w-xs lg:max-w-md">
                         <h2 className="text-base font-medium">Digital Competence Domains and Skills</h2>
                         <p className="text-accent-foreground text-sm">
-                            The key components of digital competence are 8 domains and their 5 skills which can be
-                            summarised as below.
+                            The key components of digital competence are summarised as below.
                         </p>
-                        <Accordion type="single" collapsible className="my-4 space-y-2">
+                        <Accordion type="single" collapsible className="my-4 w-full space-y-2">
                             {chartResults.map(domain => (
                                 <DomainAccordion key={domain.id} domain={domain} />
                             ))}
                         </Accordion>
                     </div>
-                    <div className="flex flex-1 flex-col items-center gap-4">
+                    <div className="flex flex-1 flex-col items-center gap-4 md:gap-8">
                         <h2 className="text-base font-medium">Digital Competences</h2>
                         <CompetenceChart domains={chartResults} />
                     </div>

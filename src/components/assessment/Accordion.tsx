@@ -11,15 +11,15 @@ export const DomainAccordion: React.FC<DomainAccordionProps> = ({ domain }) => {
         <AccordionItem value={domain.id} className="bg-input rounded-md border">
             <AccordionTrigger className="relative flex items-center gap-4 p-2 hover:no-underline">
                 <div
-                    className="bg-accent absolute top-0 left-0 h-full rounded-tl-md"
+                    className="bg-accent absolute top-0 left-0 h-full rounded-md"
                     style={{
                         width: `${domain.score}%`,
                     }}
                 />
                 <div
                     className={cn(
-                        'z-10 flex size-6 items-center justify-center',
-                        'text-secondary-foreground bg-card rounded-full border-2 text-xs font-medium'
+                        'z-10 flex size-8 items-center justify-center',
+                        'text-secondary-foreground bg-card rounded-full border-2 text-[0.625rem] font-medium'
                     )}
                     style={{ borderColor: domain.color }}
                 >
