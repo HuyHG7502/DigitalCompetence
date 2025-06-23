@@ -8,7 +8,7 @@ interface DomainAccordionProps {
 
 export const DomainAccordion: React.FC<DomainAccordionProps> = ({ domain }) => {
     return (
-        <AccordionItem value={domain.id} className="bg-input rounded-md border">
+        <AccordionItem value={domain.id} className="bg-input self-baseline rounded-md border">
             <AccordionTrigger className="relative flex items-center gap-4 p-2 hover:no-underline">
                 <div
                     className="bg-accent absolute top-0 left-0 h-full rounded-md"

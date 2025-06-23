@@ -116,13 +116,17 @@ export function ReportResult({
                         ))}
                     </div>
                 </div>
-                <div className="mt-12 flex flex-col gap-4 md:flex-row">
-                    <div className="flex flex-col gap-2 sm:max-w-xs lg:max-w-md">
+                <div className="mt-12 flex flex-col gap-4 xl:flex-row">
+                    <div className="flex flex-col gap-2 xl:max-w-sm">
                         <h2 className="text-base font-medium">Digital Competence Domains and Skills</h2>
                         <p className="text-accent-foreground text-sm">
                             The key components of digital competence are summarised as below.
                         </p>
-                        <Accordion type="single" collapsible className="my-4 w-full space-y-2">
+                        <Accordion
+                            type="single"
+                            collapsible
+                            className="my-4 grid w-full grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-1"
+                        >
                             {chartResults.map(domain => (
                                 <DomainAccordion key={domain.id} domain={domain} />
                             ))}

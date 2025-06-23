@@ -28,40 +28,19 @@ const AppLayout = () => {
         assessmentId = match ? match[1] : undefined;
     }
 
+    const pages = [
+        { path: '/', element: <HomePage /> },
+        { path: '/info', element: <HomePage /> },
+        { path: '/assessment/:assessmentId', element: <AssessmentPage /> },
+        { path: '/report/:assessmentId/*', element: <ReportPage /> },
+    ];
+
     const content = (
         <Routes>
-            <Route
-                path="/"
-                element={
-                    <LayoutWrapper>
-                        <HomePage />
-                    </LayoutWrapper>
-                }
-            />
-            <Route
-                path="info"
-                element={
-                    <LayoutWrapper>
-                        <HomePage />
-                    </LayoutWrapper>
-                }
-            />
-            <Route
-                path="assessment/:assessmentId"
-                element={
-                    <LayoutWrapper>
-                        <AssessmentPage />
-                    </LayoutWrapper>
-                }
-            />
-            <Route
-                path="report/:assessmentId/*"
-                element={
-                    <LayoutWrapper>
-                        <ReportPage />
-                    </LayoutWrapper>
-                }
-            />
+            {pages.map(page => (
+                <Route key={page.path} path={page.path} element={<LayoutWrapper>{page.element}</LayoutWrapper>} />
+            ))}
+            {/* Catch-all route for 404 */}
             <Route
                 path="*"
                 element={
