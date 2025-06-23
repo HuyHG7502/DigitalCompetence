@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import React from 'react';
+import HomePage from '@/pages/HomePage';
+import AssessmentPage from '@/pages/AssessmentPage';
+import ReportPage from '@/pages/ReportPage';
 import Sidebar from '@/components/layout/Sidebar';
 import { Loading } from '@/components/loading/Loading';
 import { AssessmentProvider } from '@/contexts/assessment/AssessmentProvider';
-
-const HomePage = React.lazy(() => import('./pages/HomePage'));
-const AssessmentPage = React.lazy(() => import('./pages/AssessmentPage'));
-const ReportPage = React.lazy(() => import('./pages/ReportPage'));
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
